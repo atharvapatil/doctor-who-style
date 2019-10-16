@@ -31,7 +31,7 @@ body {
   display: inline-block;
   font-size: 17px;
   color: #005b9f;
-  font-weight: 700;
+  font-weight: 600;
   margin: 0;
   padding: 8px;
   background: #b3e5fc;
@@ -154,5 +154,18 @@ img {
 
 a {
   text-decoration: none;
-  color: blue;
+  color: #2979ff;
+}
+
+.end p{
+  padding-top: 4px;
+  font-family: 'Varela Round', sans-serif;
+  /* font-weight: 600; */
+}
+
+.end a{
+  text-decoration: underline;
+  padding-top: 4px;
+  font-family: 'Varela Round', sans-serif;
+  color: #2979ff;
 }

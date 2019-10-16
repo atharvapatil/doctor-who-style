@@ -10,10 +10,6 @@ let Img;
 let dataRecieved = false;
 let counter = 0;
 
-function preload() {
-  tempImg = loadImage('https://media.giphy.com/media/yOjzfTX6f0K3u/giphy.gif');
-}
-
 function setup() {
 
   document.getElementById('status').classList.add('shimmer');
@@ -29,8 +25,6 @@ function setup() {
   style = ml5.styleTransfer('models/doctorwho', video, modelReady);
 
   button = document.getElementById('save-image');
-
-
 }
 
 function saveImage() {
@@ -42,26 +36,23 @@ function modelReady() {
   document.getElementById('status').classList.add('no-shimmer');
   document.getElementById('status').classList.remove('shimmer');
   status = document.getElementById('status')
-  if(counter < 1){
-  status.innerHTML = "The Doctor has arrived"
-}
+  if (counter < 1) {
+    status.innerHTML = "The Doctor has arrived"
+  }
   counter++;
 
   console.log('Model Loaded');
 
   style.transfer(resultStyle);
-
-
 }
 
 function resultStyle(error, data) {
 
-
-    setTimeout(function() {
-      document.getElementById('status').innerHTML = 'To change your pose click refresh & if you like it save it & share :)';
-    }, 3000);
-
-
+  setTimeout(function() {
+    document.getElementById('status').innerHTML = 'To change your pose click refresh & if you like it save it & share :)';
+    document.getElementById('status').style.color = '#d50000';
+    document.getElementById('status').style.background = '#ffcdd2';
+  }, 3000);
 
   Img.attribute("src", data.src);
   dataRecieved = true;
@@ -84,7 +75,6 @@ function looper() {
   text('TARDIS wooshing sound', 150, 150);
   pop();
 
-
   const px = width / 2;
   const py = height / 2;
   const minDim = min(width, height);
@@ -102,6 +92,4 @@ function looper() {
 
   // Draw a circle centred at (px, py)
   ellipse(px, py, size, size);
-
-
 }
