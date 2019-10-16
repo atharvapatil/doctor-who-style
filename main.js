@@ -67,7 +67,7 @@ function draw() {
 }
 
 function looper() {
-  background(0, 0, 0, 40);
+  background(0, 0, 255, 40);
   push();
   fill(255);
   noStroke();
