@@ -8,7 +8,7 @@ let style;
 let video;
 let Img;
 let dataRecieved = false;
-let tempImg = 'https://media.giphy.com/media/yOjzfTX6f0K3u/giphy.gif';
+let counter = 0;
 
 function preload() {
   tempImg = loadImage('https://media.giphy.com/media/yOjzfTX6f0K3u/giphy.gif');
@@ -42,14 +42,27 @@ function modelReady() {
   document.getElementById('status').classList.add('no-shimmer');
   document.getElementById('status').classList.remove('shimmer');
   status = document.getElementById('status')
+  if(counter < 1){
   status.innerHTML = "The Doctor has arrived"
+}
+  counter++;
 
   console.log('Model Loaded');
 
   style.transfer(resultStyle);
+
+
 }
 
 function resultStyle(error, data) {
+
+
+    setTimeout(function() {
+      document.getElementById('status').innerHTML = 'To change your pose click refresh & if you like it save it & share :)';
+    }, 3000);
+
+
+
   Img.attribute("src", data.src);
   dataRecieved = true;
 }
@@ -71,44 +84,24 @@ function looper() {
   text('TARDIS wooshing sound', 150, 150);
   pop();
 
-  // Center of screen
-    const px = width / 2;
-    const py = height / 2;
 
-    // We will scale everything to the minimum edge of the canvas
-    const minDim = min(width, height);
+  const px = width / 2;
+  const py = height / 2;
+  const minDim = min(width, height);
+  const size = minDim * 0.8;
 
-    // Size is a fraction of the screen
-    const size = minDim * 0.8;
+  const time = millis() / 1000;
+  const duration = 5;
+  const playhead = time / duration % 1;
+  const anim = sin(playhead * PI * 2) * 0.5 + 0.2;
+  const thickness = minDim * 0.1 * anim;
 
-    // Get time in seconds
-    const time = millis() / 1000;
+  noFill();
+  stroke(255);
+  strokeWeight(thickness);
 
-    // How long we want the loop to be (of one full cycle)
-    const duration = 5;
-
-    // Get a 'playhead' from 0..1
-    // We use modulo to keep it within 0..1
-    const playhead = time / duration % 1;
-
-    // Get an animated value from 0..1
-    // We use playhead * 2PI to get a full rotation
-    const anim = sin(playhead * PI * 2) * 0.5+ 0.2;
-
-    // Create an animated thickness for the stroke that
-    const thickness = minDim * 0.1 * anim;
-
-    // Turn off fill
-    noFill();
-
-    // Turn on stroke and make it white
-    stroke(255);
-
-    // Apply thickness
-    strokeWeight(thickness);
-
-    // Draw a circle centred at (px, py)
-    ellipse(px, py, size, size);
+  // Draw a circle centred at (px, py)
+  ellipse(px, py, size, size);
 
 
 }

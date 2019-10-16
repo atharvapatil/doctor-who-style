@@ -24,7 +24,7 @@
       <h1>Doctor Who Style Transfer</h1>
       <h4>This is a image style transfer experiment where the styles of the source image <a href="https://www.deviantart.com/alicexz/art/The-Roar-of-Our-Stars-292315617">"The Roars of our Stars"</a> a Doctor Who
       fan art are applied to the to your webcam feed.</h4>
-      <p id="status"><span>Loading model...</span></p>
+      <p ><span id="status">Loading model...</span></p>
     </div>
 
     <!-- One with the image and video -->
@@ -37,8 +37,8 @@
 
   <!-- Button action -->
   <div class="action">
-    <button type="button" onclick="saveImage()" id="save-image" class="button">SAVE IMAGE</button>
-    <button type="button" onclick="modelReady()" class="button" id="refresh">REFRESH</button>
+    <button type="button" onclick="saveImage()" id="save-image" class="save">SAVE IMAGE</button>
+    <button type="button" onclick="modelReady()" class="refresh" id="refresh">REFRESH</button>
   </div>
 
   <!-- <div class="end">
