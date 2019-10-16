@@ -4,8 +4,9 @@ let style;
 let video;
 let resultImg;
 
+
 function setup() {
-  c = createCanvas(320, 240).parent('canvasContainer');
+  c = createCanvas(300, 300).parent('canvas-container');
 
   video = createCapture(VIDEO);
   video.hide();
@@ -18,9 +19,9 @@ function setup() {
   // We give the video as the second argument
   style = ml5.styleTransfer('models/doctorwho', video, modelLoaded);
 
-  button = createButton('Save Image');
+  button = document.getElementById('save-image');
 
-  button.mousePressed(changeBG);
+  // button.onclick(changeBG);
 }
 
 function changeBG() {
@@ -28,7 +29,7 @@ function changeBG() {
 }
 
 function draw() {
-  image(resultImg, 0, 0, 320, 240);
+  image(resultImg, 0, 0, 300, 300);
 }
 
 // A function to call when the model has been loaded.
