@@ -95,6 +95,8 @@ body{
     background-color: #4CAF50; /* Green */
     border: none;
     color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -102,6 +104,13 @@ body{
     font-size: 16px;
     border-radius: 2px;
     cursor: pointer;
+    transition: 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition-delay: 0.05s;
+}
+
+.button:hover {
+  transform: rotate(-0.3deg);
+  background-color: #d32f2f;
 }
 
 #refresh{
