@@ -14,6 +14,7 @@ body {
 
 .root h4 {
   padding: 16px;
+  padding-top: 0px;
   font-size: 18px;
   font-weight: 600;
   margin: auto;
@@ -95,9 +96,23 @@ body {
   padding-top: 20px;
 }
 
+.save img{
+  width: 16px;
+  height: 16px;
+  padding-right: 16px;
+}
+
+
+.save img:hover{
+  color: #ef5350;
+}
+
+
 .save {
   font-family: 'Quicksand', sans-serif;
   font-weight: 600;
+  display: flex;
+  justify-content: center;
   border: 2px solid #ef5350;
   background-color: white;
   padding: 12px 20px;
@@ -111,15 +126,23 @@ body {
 }
 
 .save:hover {
-  /* transform: rotate(-0.8deg); */
   transform: scale(1.05);
   background-color: #ef5350;
   color: white;
 }
 
+.refresh img{
+  width: 16px;
+  height: 16px;
+  padding-right: 12px;
+  /* padding-top: -8px; */
+}
+
 .refresh {
   font-family: 'Quicksand', sans-serif;
   font-weight: 600;
+  display: flex;
+  justify-content: center;
   border: 2px solid #7e57c2;
   background-color: white;
   color: #7e57c2;
@@ -155,6 +178,12 @@ img {
 a {
   text-decoration: none;
   color: #2979ff;
+}
+
+.end{
+  position: absolute;
+  bottom: 0px;
+  left: 8px;
 }
 
 .end p{
